@@ -1,0 +1,15 @@
+# System Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node
+node_modules/
+dist/
+build/
+*.log
+
+# Secrets (Just in case)
+.env
+secret.js
