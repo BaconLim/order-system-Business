@@ -65,6 +65,26 @@
                 :style="{ borderColor: theme.primary || '#06C755' }"></div>
             <p class="text-gray-600 font-medium">{{ loadingText }}</p>
         </div>
+
+        <!-- 全站狀態擋板 -->
+        <!-- 狀態: closed (公休) -->
+        <div v-if="shopStatus === 'closed'" class="loading-overlay z-[60]">
+            <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636">
+                    </path>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">本日公休</h2>
+            <p class="text-gray-500">抱歉，今天沒有營業喔！<br>請改天再來光顧。</p>
+        </div>
+
+        <!-- 狀態: busy (忙碌中 - 僅顯示提示，不強制擋) -->
+        <div v-if="shopStatus === 'busy'"
+            class="fixed top-14 left-0 right-0 bg-red-100 text-red-700 px-4 py-3 z-40 text-sm font-medium text-center border-b border-red-200">
+            🔥 店內訂單爆量，目前等待時間較長！
+        </div>
         <!-- 頂部導航 -->
         <div class="bg-white sticky top-0 z-10 shadow-sm px-4 py-3 flex justify-between items-center">
             <h1 class="text-lg font-bold text-gray-800 tracking-wide">{{ storeName || '載入中...' }}</h1>
